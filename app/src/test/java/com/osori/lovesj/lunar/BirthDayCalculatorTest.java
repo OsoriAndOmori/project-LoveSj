@@ -17,10 +17,10 @@ public class BirthDayCalculatorTest {
 	@Test
 	public void test_장인어른() throws Exception {
 		//given
-		LocalDate gregorian = LocalDate.of(2019, 7, 14);
+		LocalDate lunar = LocalDate.of(2019, 7, 14);
 
 		//then
-		LocalDate gregorianDateByLunar = BirthDayCalculator.makeLunarDateByGregorian(gregorian);
+		LocalDate gregorianDateByLunar = BirthDayCalculator.makeLunarDateByGregorian(lunar);
 
 		//assert & verify
 		Assert.assertEquals("gregorianDateByLunar", LocalDate.of(2019, 8, 14), gregorianDateByLunar);
@@ -29,10 +29,10 @@ public class BirthDayCalculatorTest {
 	@Test
 	public void test_장모님() throws Exception {
 		//given
-		LocalDate gregorian = LocalDate.of(2019, 7, 5);
+		LocalDate lunar = LocalDate.of(2019, 7, 5);
 
 		//then
-		LocalDate gregorianDateByLunar = BirthDayCalculator.makeLunarDateByGregorian(gregorian);
+		LocalDate gregorianDateByLunar = BirthDayCalculator.makeLunarDateByGregorian(lunar);
 
 		//assert & verify
 		Assert.assertEquals("gregorianDateByLunar", LocalDate.of(2019, 8, 5), gregorianDateByLunar);
@@ -41,10 +41,10 @@ public class BirthDayCalculatorTest {
 	@Test
 	public void test_임의의_날짜() throws Exception {
 		//given
-		LocalDate gregorian = LocalDate.of(2020, 7, 14);
+		LocalDate lunar = LocalDate.of(2020, 7, 14);
 
 		//then
-		LocalDate gregorianDateByLunar = BirthDayCalculator.makeLunarDateByGregorian(gregorian);
+		LocalDate gregorianDateByLunar = BirthDayCalculator.makeLunarDateByGregorian(lunar);
 
 		//assert & verify
 		Assert.assertEquals("gregorianDateByLunar", LocalDate.of(2020, 9, 1), gregorianDateByLunar);
@@ -53,10 +53,10 @@ public class BirthDayCalculatorTest {
 	@Test
 	public void test_임의의_날짜2() throws Exception {
 		//given
-		LocalDate gregorian = LocalDate.of(2018, 10, 4);
+		LocalDate lunar = LocalDate.of(2018, 10, 4);
 
 		//then
-		LocalDate gregorianDateByLunar = BirthDayCalculator.makeLunarDateByGregorian(gregorian);
+		LocalDate gregorianDateByLunar = BirthDayCalculator.makeLunarDateByGregorian(lunar);
 
 		//assert & verify
 		Assert.assertEquals("gregorianDateByLunar", LocalDate.of(2018, 11, 11), gregorianDateByLunar);
