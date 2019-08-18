@@ -6,8 +6,6 @@ import java.time.LocalDate;
 
 /**
  * DayCalculator
- *
- * @author 스포츠_개발 (dl_sports_sweng@navercorp.com)
  */
 public class DayCalculator {
 	/**

@@ -11,9 +11,7 @@ import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 /**
- * DayCalculatorTest
- *
- * @author 스포츠_개발 (dl_sports_sweng@navercorp.com)
+ * DayCalculatorDdayTest
  */
 @RunWith(MockitoJUnitRunner.class)
 public class DayCalculatorIncludeStandardTest {

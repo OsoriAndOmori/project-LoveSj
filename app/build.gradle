@@ -33,5 +33,5 @@ dependencies {
     testImplementation group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation group: 'com.ibm.icu', name: 'icu4j', version: '4.8'
+    implementation group: 'com.ibm.icu', name: 'icu4j', version: '4.8.1'
 }
