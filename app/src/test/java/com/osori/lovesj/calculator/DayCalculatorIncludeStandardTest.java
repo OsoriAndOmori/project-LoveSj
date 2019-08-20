@@ -1,4 +1,6 @@
-package com.osori.lovesj.dday;
+package com.osori.lovesj.calculator;
+
+import com.osori.lovesj.calculator.DayCalculator;
 
 import static org.junit.Assert.*;
 

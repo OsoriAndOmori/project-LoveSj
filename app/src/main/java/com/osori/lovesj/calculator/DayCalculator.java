@@ -1,8 +1,8 @@
-package com.osori.lovesj.dday;
-
-import static java.time.temporal.ChronoUnit.*;
+package com.osori.lovesj.calculator;
 
 import java.time.LocalDate;
+
+import static java.time.temporal.ChronoUnit.DAYS;
 
 /**
  * DayCalculator

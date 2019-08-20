@@ -1,4 +1,6 @@
-package com.osori.lovesj.lunar;
+package com.osori.lovesj.calculator;
+
+import com.osori.lovesj.calculator.BirthDayCalculator;
 
 import java.time.LocalDate;
 

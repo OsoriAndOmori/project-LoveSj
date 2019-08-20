@@ -1,14 +1,13 @@
-package com.osori.lovesj.lunar;
+package com.osori.lovesj.calculator;
+
+import com.osori.lovesj.calculator.BirthDayCalculator;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.time.LocalDate;
-
-import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BirthDayCalculatorSolarToLunarTest {
