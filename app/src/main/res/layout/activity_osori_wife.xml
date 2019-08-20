@@ -6,24 +6,69 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		tools:context=".activity.OsoriActivity">
+	<LinearLayout
+		android:id="@+id/linearLayout"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:orientation="vertical"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
 
-	<TextView
-			android:id="@+id/love_dday"
-			android:layout_width="wrap_content"
+		<TextView
+			android:id="@+id/father_in_law"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="연애 Dday!"
+			android:text="아버지"
+			android:textAlignment="center"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintLeft_toLeftOf="parent"
 			app:layout_constraintRight_toRightOf="parent"
-			app:layout_constraintTop_toTopOf="parent"/>
-	<TextView
-			android:id="@+id/wedding_dday"
-			android:layout_width="wrap_content"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/mother_in_law"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="결혼 Dday!"
+			android:text="어머니"
+			android:textAlignment="center"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintLeft_toLeftOf="parent"
 			app:layout_constraintRight_toRightOf="parent"
-			app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.423"/>
+			app:layout_constraintTop_toTopOf="parent" />
 
+		<TextView
+			android:id="@+id/sj"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="수진"
+			android:textAlignment="center"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/yj"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="영진"
+			android:textAlignment="center"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/maroo"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="마루"
+			android:textAlignment="center"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+	</LinearLayout>
 </android.support.constraint.ConstraintLayout>

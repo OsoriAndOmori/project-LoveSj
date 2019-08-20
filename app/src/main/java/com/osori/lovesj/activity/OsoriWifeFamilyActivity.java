@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.osori.lovesj.R;
+import com.osori.lovesj.anniversary.BirthDay;
 import com.osori.lovesj.anniversary.OsoriAnniversary;
+import com.osori.lovesj.utils.BirthDayUtils;
 import com.osori.lovesj.utils.DayCounter;
 
 import java.time.LocalDate;
@@ -17,20 +19,19 @@ public class OsoriWifeFamilyActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_osori_wife);
 
-		TextView weddingDday = findViewById(R.id.wedding_dday);
-		String weddingText = new StringBuilder().append("Since ")
-				.append(OsoriAnniversary.WEDDING.makeReadableText())
-				.append(" - ")
-				.append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.WEDDING.getDate(), LocalDate.now()))
-				.append(" days").toString();
-		weddingDday.setText(weddingText);
+		TextView fatherInLaw = findViewById(R.id.father_in_law);
+		fatherInLaw.setText(BirthDayUtils.buildBirthDayText(BirthDay.장인어른));
 
-		TextView loveDday = findViewById(R.id.love_dday);
-		String loveDayText = new StringBuilder().append("Since ")
-				.append(OsoriAnniversary.COUPLE.makeReadableText())
-				.append(" - ")
-				.append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.COUPLE.getDate(), LocalDate.now()))
-				.append(" days").toString();
-		loveDday .setText(loveDayText);
+		TextView motherInLaw = findViewById(R.id.mother_in_law);
+		motherInLaw.setText(BirthDayUtils.buildBirthDayText(BirthDay.장모님));
+
+		TextView sj = findViewById(R.id.sj);
+		sj.setText(BirthDayUtils.buildBirthDayText(BirthDay.굴진));
+
+		TextView yj = findViewById(R.id.yj);
+		yj.setText(BirthDayUtils.buildBirthDayText(BirthDay.영진));
+
+		TextView maroo = findViewById(R.id.maroo);
+		maroo.setText(BirthDayUtils.buildBirthDayText(BirthDay.마루));
 	}
 }
