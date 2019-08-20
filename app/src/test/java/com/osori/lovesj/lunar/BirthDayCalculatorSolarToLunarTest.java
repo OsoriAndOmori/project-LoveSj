@@ -13,10 +13,6 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class BirthDayCalculatorSolarToLunarTest {
 
-    /*
-     * 고쳐주세요
-     */
-    @Ignore
     @Test
     public void test_장인어른() throws Exception {
         //given
@@ -29,10 +25,6 @@ public class BirthDayCalculatorSolarToLunarTest {
         Assert.assertEquals("gregorianDateBySolar", LocalDate.of(2019, 7, 14), gregorianDateByLunar);
     }
 
-    /*
-     * 고쳐주세요
-     */
-    @Ignore
     @Test
     public void test_장모님() throws Exception {
         //given
@@ -43,5 +35,29 @@ public class BirthDayCalculatorSolarToLunarTest {
 
         //assert & verify
         Assert.assertEquals("gregorianDateBySolar", LocalDate.of(2019, 7, 5), gregorianDateByLunar);
+    }
+
+    @Test
+    public void test_미래_내_생일() throws Exception {
+        //given
+        LocalDate lunar = LocalDate.of(2020, 6, 23);
+
+        //then
+        LocalDate gregorianDateByLunar = BirthDayCalculator.converSolarToLunar(lunar);
+
+        //assert & verify
+        Assert.assertEquals("gregorianDateBySolar", LocalDate.of(2020, 5, 3), gregorianDateByLunar);
+    }
+
+    @Test
+    public void test_미래_수진_생일() throws Exception {
+        //given
+        LocalDate lunar = LocalDate.of(2023, 9, 23);
+
+        //then
+        LocalDate gregorianDateByLunar = BirthDayCalculator.converSolarToLunar(lunar);
+
+        //assert & verify
+        Assert.assertEquals("gregorianDateBySolar", LocalDate.of(2023, 8, 9), gregorianDateByLunar);
     }
 }
