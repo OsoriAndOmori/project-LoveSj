@@ -15,19 +15,19 @@ public enum BirthDay {
     마루(LocalDate.of(2006, 6, 23), false);
 
     private LocalDate birth;
-    private boolean lunar;
+    private boolean lunarBirthDay;
 
-    BirthDay(LocalDate birth, boolean lunar) {
+    BirthDay(LocalDate birth, boolean lunarBirthDay) {
         this.birth = birth;
-        this.lunar = lunar;
+        this.lunarBirthDay = lunarBirthDay;
     }
 
     public LocalDate getBirth() {
         return birth;
     }
 
-    public boolean isLunar() {
-        return lunar;
+    public boolean isLunarBirthDay() {
+        return lunarBirthDay;
     }
 
     public String makeReadableText(){

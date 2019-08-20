@@ -1,6 +1,6 @@
-package com.osori.lovesj.calculator;
+package com.osori.lovesj.utils;
 
-import com.osori.lovesj.calculator.DayCalculator;
+import com.osori.lovesj.utils.DayCounter;
 
 import static org.junit.Assert.*;
 
@@ -11,10 +11,10 @@ import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 /**
- * DayCalculatorDdayTest
+ * DayCounterDdayTest
  */
 @RunWith(MockitoJUnitRunner.class)
-public class DayCalculatorDdayTest {
+public class DayCounterDdayTest {
 	@Test
 	public void countDdayFrom_양수_dday_체크() throws Exception {
 		//given
@@ -22,7 +22,7 @@ public class DayCalculatorDdayTest {
 		LocalDate target = LocalDate.of(2019, 8, 10);
 
 		//then
-		long dday = DayCalculator.countDdayFrom(standard, target);
+		long dday = DayCounter.countDdayFrom(standard, target);
 		long answer = 6;
 		//assert & verify
 		assertEquals("dday", answer, dday);
@@ -35,7 +35,7 @@ public class DayCalculatorDdayTest {
 		LocalDate target = LocalDate.of(2019, 8, 16);
 
 		//then
-		long dday = DayCalculator.countDdayFrom(standard, target);
+		long dday = DayCounter.countDdayFrom(standard, target);
 		long answer = 0;
 
 		//assert & verify
@@ -49,7 +49,7 @@ public class DayCalculatorDdayTest {
 		LocalDate target = LocalDate.of(2019, 8, 26);
 
 		//then
-		long dday = DayCalculator.countDdayFrom(standard, target);
+		long dday = DayCounter.countDdayFrom(standard, target);
 		long answer = -10;
 
 		//assert & verify
@@ -63,7 +63,7 @@ public class DayCalculatorDdayTest {
 		LocalDate target = LocalDate.of(2020, 9, 26);
 
 		//then
-		long dday = DayCalculator.countDdayFrom(standard, target);
+		long dday = DayCounter.countDdayFrom(standard, target);
 		long answer = -407;
 
 		//assert & verify

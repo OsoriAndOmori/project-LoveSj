@@ -4,7 +4,8 @@ import java.time.LocalDate;
 
 import com.osori.lovesj.R;
 import com.osori.lovesj.anniversary.OsoriAnniversary;
-import com.osori.lovesj.calculator.DayCalculator;
+import com.osori.lovesj.utils.DayCounter;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -20,7 +21,7 @@ public class OsoriActivity extends AppCompatActivity {
 		String weddingText = new StringBuilder().append("Since ")
 				.append(OsoriAnniversary.WEDDING.makeReadableText())
 				.append(" - ")
-				.append(DayCalculator.countDaysIncludeStandardFrom(OsoriAnniversary.WEDDING.getDate(), LocalDate.now()))
+				.append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.WEDDING.getDate(), LocalDate.now()))
 				.append(" days").toString();
 		weddingDday.setText(weddingText);
 
@@ -28,7 +29,7 @@ public class OsoriActivity extends AppCompatActivity {
 		String loveDayText = new StringBuilder().append("Since ")
 				.append(OsoriAnniversary.COUPLE.makeReadableText())
 				.append(" - ")
-				.append(DayCalculator.countDaysIncludeStandardFrom(OsoriAnniversary.COUPLE.getDate(), LocalDate.now()))
+				.append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.COUPLE.getDate(), LocalDate.now()))
 				.append(" days").toString();
 		loveDday .setText(loveDayText);
 	}

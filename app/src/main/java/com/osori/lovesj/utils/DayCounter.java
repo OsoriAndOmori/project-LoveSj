@@ -1,13 +1,13 @@
-package com.osori.lovesj.calculator;
+package com.osori.lovesj.utils;
 
 import java.time.LocalDate;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
 /**
- * DayCalculator
+ * DayCounter
  */
-public class DayCalculator {
+public class DayCounter {
 	/**
 	 * @param target 오늘 기준으로 일반적인 Dday를 체크하는 메서드
 	 *               standard 2019년 8월 13일이고, target 이 2019년 8월 15일 이면  return -2;

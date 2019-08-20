@@ -1,6 +1,6 @@
-package com.osori.lovesj.calculator;
+package com.osori.lovesj.utils;
 
-import com.osori.lovesj.calculator.BirthDayCalculator;
+import com.osori.lovesj.utils.LunarSolarConverter;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.time.LocalDate;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BirthDayCalculatorSolarToLunarTest {
+public class LunarSolarConverterSolarToLunarTest {
 
     @Test
     public void test_장인어른() throws Exception {
@@ -18,7 +18,7 @@ public class BirthDayCalculatorSolarToLunarTest {
         LocalDate lunar = LocalDate.of(2019, 8, 14);
 
         //then
-        LocalDate gregorianDateByLunar = BirthDayCalculator.converSolarToLunar(lunar);
+        LocalDate gregorianDateByLunar = LunarSolarConverter.converSolarToLunar(lunar);
 
         //assert & verify
         Assert.assertEquals("gregorianDateBySolar", LocalDate.of(2019, 7, 14), gregorianDateByLunar);
@@ -30,7 +30,7 @@ public class BirthDayCalculatorSolarToLunarTest {
         LocalDate lunar = LocalDate.of(2019, 8, 5);
 
         //then
-        LocalDate gregorianDateByLunar = BirthDayCalculator.converSolarToLunar(lunar);
+        LocalDate gregorianDateByLunar = LunarSolarConverter.converSolarToLunar(lunar);
 
         //assert & verify
         Assert.assertEquals("gregorianDateBySolar", LocalDate.of(2019, 7, 5), gregorianDateByLunar);
@@ -42,7 +42,7 @@ public class BirthDayCalculatorSolarToLunarTest {
         LocalDate lunar = LocalDate.of(2020, 6, 23);
 
         //then
-        LocalDate gregorianDateByLunar = BirthDayCalculator.converSolarToLunar(lunar);
+        LocalDate gregorianDateByLunar = LunarSolarConverter.converSolarToLunar(lunar);
 
         //assert & verify
         Assert.assertEquals("gregorianDateBySolar", LocalDate.of(2020, 5, 3), gregorianDateByLunar);
@@ -54,7 +54,7 @@ public class BirthDayCalculatorSolarToLunarTest {
         LocalDate lunar = LocalDate.of(2023, 9, 23);
 
         //then
-        LocalDate gregorianDateByLunar = BirthDayCalculator.converSolarToLunar(lunar);
+        LocalDate gregorianDateByLunar = LunarSolarConverter.converSolarToLunar(lunar);
 
         //assert & verify
         Assert.assertEquals("gregorianDateBySolar", LocalDate.of(2023, 8, 9), gregorianDateByLunar);

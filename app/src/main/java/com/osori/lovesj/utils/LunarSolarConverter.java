@@ -1,4 +1,4 @@
-package com.osori.lovesj.calculator;
+package com.osori.lovesj.utils;
 
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.ChineseCalendar;
@@ -8,31 +8,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * BirthDayCalculator
+ * LunarSolarConverter
  */
-public class BirthDayCalculator {
-    public static LocalDate findNextBirthDay(LocalDate birth, boolean isLunar) {
-        LocalDate now = LocalDate.now();
-        LocalDate birthDayOfThisYear;
-        if (isLunar) {
-            birthDayOfThisYear = convertLunarToSolar(LocalDate.of(now.getYear(), birth.getMonthValue(), birth.getDayOfMonth()));
-        } else {
-            birthDayOfThisYear = LocalDate.of(now.getYear(), birth.getMonthValue(), birth.getDayOfMonth());
-        }
-
-        LocalDate birthDayOfNextYear;
-        if (isLunar) {
-            birthDayOfNextYear = convertLunarToSolar(LocalDate.of(now.getYear() + 1, birth.getMonthValue(), birth.getDayOfMonth()));
-        } else {
-            birthDayOfNextYear = LocalDate.of(now.getYear() + 1, birth.getMonthValue(), birth.getDayOfMonth());
-        }
-
-        if (now.isBefore(birthDayOfThisYear)) {
-            return birthDayOfThisYear;
-        }
-
-        return birthDayOfNextYear;
-    }
+public class LunarSolarConverter {
 
     /**
      * 음력 2019년 7월 5일 => 양력 2019년 8월 5일 리턴하는 메서드
