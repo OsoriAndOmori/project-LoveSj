@@ -6,45 +6,59 @@
 	android:layout_height="match_parent"
 	tools:context=".activity.OsoriActivity">
 
-	<TextView
-		android:id="@+id/love_dday"
-		android:layout_width="wrap_content"
+	<LinearLayout
+		android:id="@+id/linearLayout"
+		android:layout_width="0dp"
 		android:layout_height="wrap_content"
-		android:text="연애 Dday!"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
-
-	<TextView
-		android:id="@+id/wedding_dday"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="결혼 Dday!"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		app:layout_constraintVertical_bias="0.423" />
-
-	<Button
-		android:id="@+id/kh_family"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="46dp"
-		android:layout_marginEnd="16dp"
-		android:text="Button"
-		app:layout_constraintEnd_toStartOf="@+id/love_dday"
-		app:layout_constraintTop_toBottomOf="@+id/love_dday" />
-
-	<Button
-		android:id="@+id/sj_family"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="46dp"
-		android:layout_marginEnd="65dp"
-		android:text="Button"
+		android:gravity="center"
+		android:orientation="vertical"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/love_dday" />
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
 
+		<ImageView
+			android:id="@+id/imageView"
+			android:layout_width="wrap_content"
+			android:layout_height="410dp"
+			app:srcCompat="@drawable/osori_couple"
+			tools:layout_editor_absoluteX="0dp"
+			tools:layout_editor_absoluteY="-144dp" />
+		<TextView
+			android:id="@+id/title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Kh Love Sj"/>
+		<TextView
+			android:id="@+id/love_dday"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="연애 Dday!"/>
+
+		<TextView
+			android:id="@+id/wedding_dday"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="결혼 Dday!"/>
+		<LinearLayout
+			android:id="@+id/linearLayout2"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:orientation="horizontal"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
+
+			<Button
+				android:id="@+id/kh_family"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="기훈가족" />
+			<Button
+				android:id="@+id/sj_family"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="수진가족"/>
+		</LinearLayout>
+	</LinearLayout>
 </android.support.constraint.ConstraintLayout>

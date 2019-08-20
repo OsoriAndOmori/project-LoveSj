@@ -27,8 +27,10 @@ public class BirthDayUtils {
     }
 
     public static String buildBirthDayText(BirthDay birthDay) {
+        LocalDate upComingBirthDay = findUpComingBirthDay(birthDay.getBirth(), birthDay.isLunarBirthDay());
+
         StringBuilder builder = new StringBuilder().append(birthDay.name()).append(DOT_SPACE)
-                .append(localDateToReadableText(findUpComingBirthDay(birthDay.getBirth(), birthDay.isLunarBirthDay())));
+                .append(localDateToReadableText(upComingBirthDay));
 
         if (birthDay.isLunarBirthDay()) {
             builder.append("(음. ").append(birthDay.getBirth().getMonthValue()).append(DOT_SPACE)
@@ -37,12 +39,13 @@ public class BirthDayUtils {
 
         return builder
                 .append(". Dday - ")
-                .append(DayCounter.countDdayFrom(birthDay.getBirth(), LocalDate.now()))
+                .append(DayCounter.countDdayFrom(upComingBirthDay, LocalDate.now()))
                 .toString();
     }
 
     private static String localDateToReadableText(LocalDate date) {
         return new StringBuilder()
+                .append(date.getYear()).append(DOT_SPACE)
                 .append(date.getMonthValue()).append(DOT_SPACE)
                 .append(date.getDayOfMonth()).toString();
     }

@@ -20,18 +20,18 @@ public class OsoriActivity extends AppCompatActivity {
         setContentView(R.layout.activity_osori);
 
         TextView weddingDday = findViewById(R.id.wedding_dday);
-        String weddingText = new StringBuilder().append("Since ")
+        String weddingText = new StringBuilder().append("Since Wedding - ")
                 .append(OsoriAnniversary.WEDDING.makeReadableText())
                 .append(" - ")
-                .append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.WEDDING.getDate(), LocalDate.now()))
+                .append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.COUPLE.getDate(), LocalDate.now()))
                 .append(" days").toString();
         weddingDday.setText(weddingText);
 
         TextView loveDday = findViewById(R.id.love_dday);
-        String loveDayText = new StringBuilder().append("Since ")
+        String loveDayText = new StringBuilder().append("Since First Love - ")
                 .append(OsoriAnniversary.COUPLE.makeReadableText())
                 .append(" - ")
-                .append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.COUPLE.getDate(), LocalDate.now()))
+                .append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.WEDDING.getDate(), LocalDate.now()))
                 .append(" days").toString();
         loveDday.setText(loveDayText);
 

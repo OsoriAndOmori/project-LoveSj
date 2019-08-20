@@ -16,6 +16,13 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent">
 
+
+		<ImageView
+			android:id="@+id/imageView2"
+			android:layout_width="match_parent"
+			android:layout_height="412dp"
+			app:srcCompat="@drawable/osori_wife" />
+
 		<TextView
 			android:id="@+id/father_in_law"
 			android:layout_width="match_parent"
