@@ -3,7 +3,7 @@ package com.osori.lovesj.anniversary;
 import java.time.LocalDate;
 
 public enum BirthDay {
-	기훈(LocalDate.of(1990, 8, 21), false),
+	기훈(LocalDate.of(1990, 6, 23), false),
 	수진(LocalDate.of(1993, 9, 23), false),
 	아버지(LocalDate.of(1961, 9, 19), false),
 	어머니(LocalDate.of(1962, 12, 12), false),
