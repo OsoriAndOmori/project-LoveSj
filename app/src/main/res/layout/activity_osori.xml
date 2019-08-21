@@ -6,38 +6,8 @@
 	android:layout_height="match_parent"
 	tools:context=".activity.OsoriActivity">
 
-	<LinearLayout
-		android:id="@+id/wrap_linear_layout"
-		android:layout_width="0dp"
-		android:layout_height="match_parent"
-		android:gravity="center"
-		android:orientation="vertical"
-		android:background="@color/lightPink"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent">
-
-		<ImageView
-			android:id="@+id/coupleImage"
-			android:layout_width="match_parent"
-			android:layout_height="410dp"
-			app:srcCompat="@drawable/osori_couple"
-			tools:layout_editor_absoluteX="0dp"
-			tools:layout_editor_absoluteY="-144dp" />
-		<TextView
-			android:id="@+id/title"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Kh Love Sj"/>
-		<TextView
-			android:id="@+id/love_dday"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="연애 Dday!"/>
-		<TextView
-			android:id="@+id/wedding_dday"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="결혼 Dday!"/>
-	</LinearLayout>
+	<android.support.v4.view.ViewPager
+		android:id="@+id/view_page"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"/>
 </android.support.constraint.ConstraintLayout>
