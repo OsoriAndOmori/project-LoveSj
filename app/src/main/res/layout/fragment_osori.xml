@@ -22,17 +22,21 @@
 		app:layout_constraintTop_toTopOf="parent">
 
 		<ImageView
+			android:layout_width="100dp"
+			android:layout_height="60dp"
+			app:srcCompat="@drawable/love"/>
+
+		<ImageView
 			android:id="@+id/coupleImage"
 			android:layout_width="match_parent"
-			android:layout_height="410dp"
-			app:srcCompat="@drawable/osori_couple"
-			tools:layout_editor_absoluteX="0dp"
-			tools:layout_editor_absoluteY="-144dp" />
+			android:layout_height="412dp"
+			app:srcCompat="@drawable/osori_couple"/>
+
 		<TextView
 			android:id="@+id/title"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="Kh Love Sj"/>
+			android:text="Kh Loves Sj"/>
 		<TextView
 			android:id="@+id/love_dday"
 			android:layout_width="wrap_content"

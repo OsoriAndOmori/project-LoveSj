@@ -18,10 +18,17 @@
 		app:layout_constraintTop_toTopOf="parent">
 
 		<ImageView
-				android:id="@+id/imageView2"
-				android:layout_width="match_parent"
-				android:layout_height="412dp"
-				app:srcCompat="@drawable/osori_wife" android:cropToPadding="false" android:adjustViewBounds="false"/>
+			android:layout_width="100dp"
+			android:layout_height="60dp"
+			app:srcCompat="@drawable/love_wife"/>
+
+		<ImageView
+			android:id="@+id/imageView2"
+			android:layout_width="match_parent"
+			android:layout_height="412dp"
+			android:adjustViewBounds="false"
+			android:cropToPadding="false"
+			app:srcCompat="@drawable/osori_wife" />
 
 		<TextView
 			android:id="@+id/father_in_law"

@@ -1,7 +1,8 @@
 package com.osori.lovesj.anniversary;
 
+import com.osori.lovesj.utils.BirthDayUtils;
+
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public enum OsoriAnniversary {
 	연애(LocalDate.of(2014, 4, 19)),
@@ -18,6 +19,6 @@ public enum OsoriAnniversary {
 	}
 
 	public String makeReadableText() {
-		return this.date.format(DateTimeFormatter.ofPattern("yyyy. MM. dd."));
+		return BirthDayUtils.localDateToReadableText(this.date);
 	}
 }

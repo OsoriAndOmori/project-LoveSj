@@ -6,6 +6,7 @@ import com.osori.lovesj.anniversary.BirthDay;
 
 public class BirthDayUtils {
 	private static final String DOT_SPACE = ". ";
+	private static final String SPACE = " ";
 
 	public static LocalDate findUpComingBirthDay(LocalDate birth, boolean isLunarBirthDay) {
 		LocalDate now = LocalDate.now();
@@ -31,21 +32,21 @@ public class BirthDayUtils {
 	public static String buildBirthDayText(BirthDay birthDay) {
 		LocalDate upComingBirthDay = findUpComingBirthDay(birthDay.getBirth(), birthDay.isLunarBirthDay());
 
-		StringBuilder builder = new StringBuilder().append(birthDay.name()).append(DOT_SPACE)
+		StringBuilder builder = new StringBuilder().append(birthDay.name()).append(SPACE).append(SPACE)
 				.append(localDateToReadableText(upComingBirthDay));
 
 		if (birthDay.isLunarBirthDay()) {
-			builder.append("(음. ").append(birthDay.getBirth().getMonthValue()).append(DOT_SPACE)
+			builder.append(" (음 ").append(birthDay.getBirth().getMonthValue()).append(DOT_SPACE)
 					.append(birthDay.getBirth().getDayOfMonth()).append(")");
 		}
 
 		return builder
-				.append(". Dday - ")
+				.append(". D - ")
 				.append(DayCounter.countDdayFrom(upComingBirthDay, LocalDate.now()))
 				.toString();
 	}
 
-	private static String localDateToReadableText(LocalDate date) {
+	public static String localDateToReadableText(LocalDate date) {
 		return new StringBuilder()
 				.append(date.getYear()).append(DOT_SPACE)
 				.append(date.getMonthValue()).append(DOT_SPACE)

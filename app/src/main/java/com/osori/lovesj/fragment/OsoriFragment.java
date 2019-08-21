@@ -1,5 +1,6 @@
 package com.osori.lovesj.fragment;
 
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.osori.lovesj.R;
@@ -35,11 +37,11 @@ public class OsoriFragment extends Fragment {
         weddingDday.setText(weddingText);
 
         TextView loveDday = view.findViewById(R.id.love_dday);
-        String loveDayText = new StringBuilder().append("Since First Love - ")
+        String loveDayText = new StringBuilder().append("Since First Meet - ")
                 .append(OsoriAnniversary.연애.makeReadableText())
                 .append(" - ")
                 .append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.연애.getDate(), LocalDate.now()))
-                .append(" days").toString();
+                .append(" Days").toString();
         loveDday.setText(loveDayText);
     }
 }
