@@ -11,7 +11,7 @@ public enum BirthDay {
 	아버님(LocalDate.of(1961, 7, 14), true),
 	어머님(LocalDate.of(1969, 7, 5), true),
 	영진(LocalDate.of(1997, 2, 18), false),
-	마루(LocalDate.of(2006, 6, 23), false);
+	마루(LocalDate.of(2006, 11, 17), false);
 
 	private LocalDate birth;
 	private boolean lunarBirthDay;
