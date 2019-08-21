@@ -1,8 +1,8 @@
 package com.osori.lovesj.utils;
 
-import java.time.LocalDate;
+import static java.time.temporal.ChronoUnit.*;
 
-import static java.time.temporal.ChronoUnit.DAYS;
+import java.time.LocalDate;
 
 /**
  * DayCounter

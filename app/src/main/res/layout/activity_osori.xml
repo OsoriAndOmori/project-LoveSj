@@ -7,18 +7,19 @@
 	tools:context=".activity.OsoriActivity">
 
 	<LinearLayout
-		android:id="@+id/linearLayout"
+		android:id="@+id/wrap_linear_layout"
 		android:layout_width="0dp"
-		android:layout_height="wrap_content"
+		android:layout_height="match_parent"
 		android:gravity="center"
 		android:orientation="vertical"
+		android:background="@color/lightPink"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent">
 
 		<ImageView
-			android:id="@+id/imageView"
-			android:layout_width="wrap_content"
+			android:id="@+id/coupleImage"
+			android:layout_width="match_parent"
 			android:layout_height="410dp"
 			app:srcCompat="@drawable/osori_couple"
 			tools:layout_editor_absoluteX="0dp"
@@ -33,32 +34,10 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="연애 Dday!"/>
-
 		<TextView
 			android:id="@+id/wedding_dday"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="결혼 Dday!"/>
-		<LinearLayout
-			android:id="@+id/linearLayout2"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center"
-			android:orientation="horizontal"
-			app:layout_constraintEnd_toEndOf="parent"
-			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toTopOf="parent">
-
-			<Button
-				android:id="@+id/kh_family"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="기훈가족" />
-			<Button
-				android:id="@+id/sj_family"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="수진가족"/>
-		</LinearLayout>
 	</LinearLayout>
 </android.support.constraint.ConstraintLayout>

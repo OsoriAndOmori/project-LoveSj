@@ -7,11 +7,12 @@
 	tools:context=".activity.OsoriActivity">
 
 	<LinearLayout
-		android:id="@+id/linearLayout"
+		android:id="@+id/wrap_linear_layout"
 		android:layout_width="0dp"
-		android:layout_height="wrap_content"
+		android:layout_height="match_parent"
 		android:gravity="center"
 		android:orientation="vertical"
+		android:background="@color/lightPink"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent">
