@@ -5,14 +5,9 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	tools:context=".activity.OsoriActivity">
-
-	<android.support.v4.view.ViewPager
-		android:id="@+id/view_page"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"/>
 	<LinearLayout
 		android:id="@+id/wrap_linear_layout"
-		android:layout_width="0dp"
+		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:gravity="center"
 		android:orientation="vertical"
@@ -20,9 +15,8 @@
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent">
-
 		<ImageView
-			android:layout_width="100dp"
+			android:layout_width="match_parent"
 			android:layout_height="60dp"
 			app:srcCompat="@drawable/love"/>
 
@@ -30,22 +24,28 @@
 			android:id="@+id/coupleImage"
 			android:layout_width="match_parent"
 			android:layout_height="412dp"
+			android:padding="20dp"
 			app:srcCompat="@drawable/osori_couple"/>
 
 		<TextView
 			android:id="@+id/title"
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="Kh Loves Sj"/>
+			android:textAlignment="center"
+			android:text="Kh has Loved Sj"/>
 		<TextView
 			android:id="@+id/love_dday"
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:textAlignment="center"
+			android:layout_marginTop="5dp"
 			android:text="연애 Dday!"/>
 		<TextView
 			android:id="@+id/wedding_dday"
-			android:layout_width="wrap_content"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:textAlignment="center"
+			android:layout_marginTop="5dp"
 			android:text="결혼 Dday!"/>
 	</LinearLayout>
 </android.support.constraint.ConstraintLayout>

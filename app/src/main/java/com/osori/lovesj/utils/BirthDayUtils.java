@@ -41,7 +41,7 @@ public class BirthDayUtils {
 		}
 
 		return builder
-				.append(". D - ")
+				.append(".").append("    ").append("D - ")
 				.append(DayCounter.countDdayFrom(upComingBirthDay, LocalDate.now()))
 				.toString();
 	}
