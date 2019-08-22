@@ -1,3 +1,7 @@
 <resources>
 	<string name="app_name">LoveSj</string>
+	<string name="couple_name">Osori</string>
+	<string name="couple_name_kor">오소리들</string>
+	<string name="husband_family">기훈이네</string>
+	<string name="wife_family">수진이네</string>
 </resources>
