@@ -1,2 +1,5 @@
 ## 수진 기훈 결혼 Dday Application
-- 가족 생일도 넣고 기념일 등등. 어른들 설정이 어려우니 확장성없게 그냥 상수로
+- v0.0.1 : [LoveSj-0.0.1.apk.zip](https://github.com/OsoriAndOmori/LoveSj/files/3480514/default.zip)
+- v1.0.1 : [LoveSj-1.0.1.apk.zip](https://github.com/OsoriAndOmori/LoveSj/files/3532454/LoveSj-1.0.1.apk.zip)
+
+![lovesj-low](https://user-images.githubusercontent.com/22016317/63560183-09aff600-c590-11e9-9d30-5bdae9a32bba.gif)
