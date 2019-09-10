@@ -25,10 +25,13 @@ public class OsoriWifeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         TextView fatherInLaw = view.findViewById(R.id.father_in_law);
-        fatherInLaw.setText(BirthDayUtils.buildBirthDayText(BirthDay.아버님));
+        fatherInLaw.setText(BirthDayUtils.buildBirthDayText(BirthDay.이모부));
 
         TextView motherInLaw = view.findViewById(R.id.mother_in_law);
-        motherInLaw.setText(BirthDayUtils.buildBirthDayText(BirthDay.어머님));
+        motherInLaw.setText(BirthDayUtils.buildBirthDayText(BirthDay.이모));
+
+        TextView kh = view.findViewById(R.id.kh);
+        kh.setText(BirthDayUtils.buildBirthDayText(BirthDay.기훈));
 
         TextView sj = view.findViewById(R.id.sj);
         sj.setText(BirthDayUtils.buildBirthDayText(BirthDay.수진));

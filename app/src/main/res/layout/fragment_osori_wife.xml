@@ -55,6 +55,18 @@
 			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
+				android:id="@+id/kh"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="기훈"
+				android:layout_marginTop="5dp"
+				android:textAlignment="center"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
 			android:id="@+id/sj"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

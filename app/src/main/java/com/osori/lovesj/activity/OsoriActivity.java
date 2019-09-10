@@ -15,9 +15,9 @@ public class OsoriActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_osori);
 
 		ViewPager viewPager = findViewById(R.id.view_page);
-		viewPager.setOffscreenPageLimit(1);
+		viewPager.setOffscreenPageLimit(0);
 		SwipeAdapter swipeAdapter = new SwipeAdapter(getSupportFragmentManager());
 		viewPager.setAdapter(swipeAdapter);
-		viewPager.setCurrentItem(1);
+		viewPager.setCurrentItem(0);
 	}
 }

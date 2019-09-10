@@ -16,19 +16,19 @@ public class SwipeAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
+//            case 0:
+//                return new OsoriFragment();
             case 0:
                 return new OsoriHusbandFragment();
             case 1:
-                return new OsoriFragment();
-            case 2:
                 return new OsoriWifeFragment();
             default:
-                return new OsoriFragment();
+                return new OsoriHusbandFragment();
         }
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 }
