@@ -3,10 +3,10 @@ package com.osori.lovesj.anniversary;
 import java.time.LocalDate;
 
 public enum BirthDay {
-	아빠(LocalDate.of(1961, 9, 19), false),
-	엄마(LocalDate.of(1962, 12, 21), false),
-	문석(LocalDate.of(1990, 6, 23), false),
-	은서(LocalDate.of(1993, 5, 20), false),
+	아빠(LocalDate.of(1961, 8, 20), true),
+	엄마(LocalDate.of(1962, 3, 13), true),
+	문석(LocalDate.of(1996, 10, 	29), false),
+	은서(LocalDate.of(1997, 9, 19), false),
 
 	이모부(LocalDate.of(1961, 7, 14), true),
 	이모(LocalDate.of(1969, 7, 5), true),
