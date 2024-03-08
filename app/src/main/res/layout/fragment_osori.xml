@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
@@ -25,14 +25,8 @@
 			android:layout_width="match_parent"
 			android:layout_height="412dp"
 			android:padding="20dp"
-			app:srcCompat="@drawable/osori_couple"/>
+			app:srcCompat="@drawable/family" />
 
-		<TextView
-			android:id="@+id/title"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:textAlignment="center"
-			android:text="Kh has Loved Sj"/>
 		<TextView
 			android:id="@+id/love_dday"
 			android:layout_width="match_parent"
@@ -47,5 +41,46 @@
 			android:textAlignment="center"
 			android:layout_marginTop="5dp"
 			android:text="결혼 Dday!"/>
+
+		<TextView
+			android:id="@+id/기훈"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="나준 Dday!"
+			android:textAlignment="center" />
+
+		<TextView
+			android:id="@+id/수진"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="나준 Dday!"
+			android:textAlignment="center" />
+
+		<TextView
+			android:id="@+id/나린"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="나린 Dday!"
+			android:textAlignment="center" />
+
+		<TextView
+			android:id="@+id/나율"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="나율 Dday!"
+			android:textAlignment="center" />
+
+		<TextView
+			android:id="@+id/나준"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="나준 Dday!"
+			android:textAlignment="center" />
+
 	</LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

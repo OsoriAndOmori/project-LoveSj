@@ -1,8 +1,8 @@
 package com.osori.lovesj.listener;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.osori.lovesj.fragment.OsoriFragment;
 import com.osori.lovesj.fragment.OsoriHusbandFragment;

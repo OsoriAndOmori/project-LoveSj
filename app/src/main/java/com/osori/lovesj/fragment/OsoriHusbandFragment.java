@@ -1,13 +1,14 @@
 package com.osori.lovesj.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.osori.lovesj.R;
 import com.osori.lovesj.anniversary.BirthDay;
@@ -23,17 +24,22 @@ public class OsoriHusbandFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        TextView 일산할아버지 = view.findViewById(R.id.일산할아버지);
+        일산할아버지.setText(BirthDayUtils.buildBirthDayText(BirthDay.일산할아버지));
 
-        TextView father = view.findViewById(R.id.father);
-        father.setText(BirthDayUtils.buildBirthDayText(BirthDay.아버지));
+        TextView 일산할머니 = view.findViewById(R.id.일산할머니);
+        일산할머니.setText(BirthDayUtils.buildBirthDayText(BirthDay.일산할머니));
 
-        TextView mother = view.findViewById(R.id.mother);
-        mother.setText(BirthDayUtils.buildBirthDayText(BirthDay.어머니));
+        TextView 성길 = view.findViewById(R.id.성길);
+        성길.setText(BirthDayUtils.buildBirthDayText(BirthDay.성길));
 
-        TextView me = view.findViewById(R.id.me);
-        me.setText(BirthDayUtils.buildBirthDayText(BirthDay.기훈));
+        TextView 예지 = view.findViewById(R.id.예지);
+        예지.setText(BirthDayUtils.buildBirthDayText(BirthDay.예지));
 
-        TextView sister = view.findViewById(R.id.sister);
-        sister.setText(BirthDayUtils.buildBirthDayText(BirthDay.예지));
+        TextView 은하 = view.findViewById(R.id.은하);
+        은하.setText(BirthDayUtils.buildBirthDayText(BirthDay.은하));
+
+        TextView 은비 = view.findViewById(R.id.은비);
+        은비.setText(BirthDayUtils.buildBirthDayText(BirthDay.은비));
     }
 }
