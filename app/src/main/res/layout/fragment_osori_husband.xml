@@ -10,9 +10,9 @@
 		android:id="@+id/wrap_linear_layout"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:background="@color/lightPink"
 		android:gravity="center"
 		android:orientation="vertical"
-		android:background="@color/lightPink"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent">
@@ -20,61 +20,61 @@
 		<ImageView
 			android:layout_width="100dp"
 			android:layout_height="60dp"
-			app:srcCompat="@drawable/love_hus"/>
+			app:srcCompat="@drawable/love_hus" />
 
 		<ImageView
 			android:id="@+id/imageView2"
 			android:layout_width="match_parent"
-			android:layout_height="412dp"
+			android:layout_height="350dp"
 			android:padding="20dp"
 			app:srcCompat="@drawable/osori_hus" />
 
 		<TextView
-				android:id="@+id/일산할아버지"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="아버지"
-				android:textAlignment="center"
-				app:layout_constraintBottom_toBottomOf="parent"
-				app:layout_constraintLeft_toLeftOf="parent"
-				app:layout_constraintRight_toRightOf="parent"
-				app:layout_constraintTop_toTopOf="parent" />
+			android:id="@+id/일산할아버지"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="아버지"
+			android:textAlignment="center"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
-				android:id="@+id/일산할머니"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="어머니"
-				android:textAlignment="center"
-				android:layout_marginTop="5dp"
-				app:layout_constraintBottom_toBottomOf="parent"
-				app:layout_constraintLeft_toLeftOf="parent"
-				app:layout_constraintRight_toRightOf="parent"
-				app:layout_constraintTop_toTopOf="parent" />
+			android:id="@+id/일산할머니"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="어머니"
+			android:textAlignment="center"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
-				android:id="@+id/성길"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="기훈"
-				android:textAlignment="center"
-				android:layout_marginTop="5dp"
-				app:layout_constraintBottom_toBottomOf="parent"
-				app:layout_constraintLeft_toLeftOf="parent"
-				app:layout_constraintRight_toRightOf="parent"
-				app:layout_constraintTop_toTopOf="parent" />
+			android:id="@+id/성길"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="기훈"
+			android:textAlignment="center"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
-				android:id="@+id/예지"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="예지"
-				android:textAlignment="center"
-				android:layout_marginTop="5dp"
-				app:layout_constraintBottom_toBottomOf="parent"
-				app:layout_constraintLeft_toLeftOf="parent"
-				app:layout_constraintRight_toRightOf="parent"
-				app:layout_constraintTop_toTopOf="parent" />
+			android:id="@+id/예지"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="예지"
+			android:textAlignment="center"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
 			android:id="@+id/은하"

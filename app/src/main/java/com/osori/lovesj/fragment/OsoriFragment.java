@@ -40,17 +40,15 @@ public class OsoriFragment extends Fragment {
 		TextView weddingDday = view.findViewById(R.id.wedding_dday);
 		String weddingText = new StringBuilder().append("결혼한 날 - ")
 				.append(OsoriAnniversary.결혼.makeReadableText())
-				.append("  D+")
-				.append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.결혼.getDate(), LocalDate.now()))
-				.append(" days").toString();
+				.append(".  D + ")
+				.append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.결혼.getDate(), LocalDate.now())).toString();
 		weddingDday.setText(weddingText);
 
 		TextView loveDday = view.findViewById(R.id.love_dday);
 		String loveDayText = new StringBuilder().append("연애 시작한 날 - ")
 				.append(OsoriAnniversary.연애.makeReadableText())
-				.append("  D+")
-				.append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.연애.getDate(), LocalDate.now()))
-				.append(" Days").toString();
+				.append(".  D + ")
+				.append(DayCounter.countDaysIncludeStandardFrom(OsoriAnniversary.연애.getDate(), LocalDate.now())).toString();
 		loveDday.setText(loveDayText);
 
 		TextView 기훈 = view.findViewById(R.id.기훈);
