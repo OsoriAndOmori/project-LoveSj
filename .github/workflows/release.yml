@@ -22,6 +22,12 @@ jobs:
           java-version: "17"
           cache: gradle
 
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
       # 1) keystore 복원 (secrets -> 파일)
       - name: Decode keystore
         run: |
@@ -47,9 +53,25 @@ jobs:
           name: app-release-apk
           path: app/build/outputs/apk/release/app-release.apk
 
+      - name: Flutter pub get
+        working-directory: flutter_app
+        run: flutter pub get
+
+      - name: Build Flutter release APK
+        working-directory: flutter_app
+        run: flutter build apk --release
+
+      - name: Upload Flutter APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-release-apk
+          path: flutter_app/build/app/outputs/flutter-apk/app-release.apk
+
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ github.run_number }}
           name: Release v${{ github.run_number }}
-          files: app/build/outputs/apk/release/app-release.apk
+          files: |
+            app/build/outputs/apk/release/app-release.apk
+            flutter_app/build/app/outputs/flutter-apk/app-release.apk
