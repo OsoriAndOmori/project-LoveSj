@@ -4,4 +4,8 @@
 	<string name="couple_name_kor">오소리들</string>
 	<string name="husband_family">기훈이네</string>
 	<string name="wife_family">수진이네</string>
+	<string name="notification_channel_name">생일 알림</string>
+	<string name="notification_channel_description">생일이 다가오면 알려드릴게요.</string>
+	<string name="notification_birthday_title">생일이 다가왔어요</string>
+	<string name="notification_birthday_summary">%1$d개의 생일이 가까워요.</string>
 </resources>
