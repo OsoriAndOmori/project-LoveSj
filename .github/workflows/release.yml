@@ -75,3 +75,40 @@ jobs:
           files: |
             app/build/outputs/apk/release/app-release.apk
             flutter_app/build/app/outputs/flutter-apk/app-release.apk
+
+  build-flutter-ios:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Flutter pub get
+        working-directory: flutter_app
+        run: flutter pub get
+
+      - name: Build Flutter iOS (no codesign)
+        working-directory: flutter_app
+        run: flutter build ios --release --no-codesign
+
+      - name: Package iOS app
+        working-directory: flutter_app/build/ios/iphoneos
+        run: zip -r LoveSjFlutter-iOS.zip Runner.app
+
+      - name: Upload iOS artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-ios-app
+          path: flutter_app/build/ios/iphoneos/LoveSjFlutter-iOS.zip
+
+      - name: Attach iOS app to release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Release v${{ github.run_number }}
+          files: flutter_app/build/ios/iphoneos/LoveSjFlutter-iOS.zip
