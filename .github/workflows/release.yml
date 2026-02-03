@@ -23,7 +23,6 @@ permissions:
 env:
   FLUTTER_VERSION: '3.38.7'
   AUTO_TAG_PREFIX: 'v0.0.'
-  IOS_BUILD_ENABLED: 'false'
 
 jobs:
   android:
@@ -83,9 +82,7 @@ jobs:
     runs-on: macos-14
     if: >-
       ${{
-        (github.event_name == 'workflow_dispatch' && inputs.build_ios == 'true') ||
-        (github.event_name != 'workflow_dispatch' &&
-          env.IOS_BUILD_ENABLED == 'true')
+        github.event_name == 'workflow_dispatch' && inputs.build_ios == 'true'
       }}
     steps:
       - name: Checkout
