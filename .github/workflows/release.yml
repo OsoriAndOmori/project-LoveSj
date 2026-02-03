@@ -4,12 +4,29 @@ on:
   push:
     branches:
       - master
+      - main
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (예: v1.0.0)'
+        required: true
+      build_ios:
+        description: 'iOS 빌드 포함 여부 (true/false)'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
 
+env:
+  FLUTTER_VERSION: '3.38.7'
+  AUTO_TAG_PREFIX: 'v0.0.'
+  IOS_BUILD_ENABLED: 'false'
+
 jobs:
-  build-release:
+  android:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,37 +36,187 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "17"
+          java-version: '17'
           cache: gradle
 
-      # 1) keystore 복원 (secrets -> 파일)
-      - name: Decode keystore
-        run: |
-          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > release.keystore
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
 
-      # 2) 빌드 (서명 정보는 env로)
-      - name: Build signed release APK
+      - name: Flutter pub get
+        run: flutter pub get
+
+      - name: Decode keystore
+        if: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > ${{ github.workspace }}/release.keystore
+
+      - name: Build release APK + AAB
         env:
           ANDROID_KEYSTORE_PATH: ${{ github.workspace }}/release.keystore
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
-        run: ./gradlew assembleRelease
+        run: |
+          flutter build apk --release
+          flutter build appbundle --release
 
-      # 3) 결과 확인(디버깅용, 원하면 지워도 됨)
-      - name: List APK outputs
-        run: ls -al app/build/outputs/apk/release
-
-      # 4) signed APK 업로드 (보통 파일명이 app-release.apk 로 나옴)
-      - name: Upload release APK artifact
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-release-apk
-          path: app/build/outputs/apk/release/app-release.apk
+          name: android-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
 
-      - name: Create GitHub release
+      - name: Upload AAB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-aab
+          path: build/app/outputs/bundle/release/app-release.aab
+
+  ios:
+    runs-on: macos-14
+    if: >-
+      ${{
+        (github.event_name == 'workflow_dispatch' && inputs.build_ios == 'true') ||
+        (github.event_name != 'workflow_dispatch' &&
+          env.IOS_BUILD_ENABLED == 'true' &&
+          secrets.IOS_TEAM_ID != '' &&
+          secrets.IOS_P12_BASE64 != '' &&
+          secrets.IOS_PROVISIONING_PROFILE_BASE64 != '')
+      }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - name: Flutter pub get
+        run: flutter pub get
+
+      - name: Install signing certificate
+        env:
+          KEYCHAIN_PASSWORD: ${{ secrets.IOS_KEYCHAIN_PASSWORD }}
+          IOS_P12_PASSWORD: ${{ secrets.IOS_P12_PASSWORD }}
+        run: |
+          if [ -z "${{ secrets.IOS_P12_BASE64 }}" ]; then
+            echo "No iOS signing certificate provided. Skipping certificate import."
+            exit 0
+          fi
+          KEYCHAIN_PASSWORD=${KEYCHAIN_PASSWORD:-temp_keychain}
+          CERT_PATH="$RUNNER_TEMP/ios_signing.p12"
+          echo "${{ secrets.IOS_P12_BASE64 }}" | base64 --decode > "$CERT_PATH"
+          security create-keychain -p "$KEYCHAIN_PASSWORD" build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" build.keychain
+          security import "$CERT_PATH" -k build.keychain -P "$IOS_P12_PASSWORD" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" build.keychain
+
+      - name: Install provisioning profile
+        run: |
+          if [ -z "${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}" ]; then
+            echo "No provisioning profile provided. Skipping profile install."
+            exit 0
+          fi
+          PROFILE_PATH="$RUNNER_TEMP/profile.mobileprovision"
+          echo "${{ secrets.IOS_PROVISIONING_PROFILE_BASE64 }}" | base64 --decode > "$PROFILE_PATH"
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          cp "$PROFILE_PATH" "$HOME/Library/MobileDevice/Provisioning Profiles/"
+
+      - name: Configure Team ID
+        run: |
+          if [ -z "${{ secrets.IOS_TEAM_ID }}" ]; then
+            echo "Missing IOS_TEAM_ID secret."
+            exit 1
+          fi
+          echo "DEVELOPMENT_TEAM=${{ secrets.IOS_TEAM_ID }}" >> ios/Flutter/Release.xcconfig
+
+      - name: Generate ExportOptions.plist
+        env:
+          IOS_EXPORT_METHOD: ${{ secrets.IOS_EXPORT_METHOD }}
+        run: |
+          EXPORT_METHOD="${IOS_EXPORT_METHOD:-app-store}"
+          cat > ios/ExportOptions.plist <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>method</key>
+            <string>${EXPORT_METHOD}</string>
+            <key>signingStyle</key>
+            <string>automatic</string>
+            <key>teamID</key>
+            <string>${{ secrets.IOS_TEAM_ID }}</string>
+            <key>compileBitcode</key>
+            <false/>
+          </dict>
+          </plist>
+          EOF
+
+      - name: Build iOS IPA
+        run: flutter build ipa --release --export-options-plist=ios/ExportOptions.plist
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-ipa
+          path: build/ios/ipa/*.ipa
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [android, ios]
+    if: >-
+      ${{
+        needs.android.result == 'success' &&
+        (needs.ios.result == 'success' || needs.ios.result == 'skipped')
+      }}
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+          if-no-files-found: ignore
+
+      - name: Resolve release files
+        run: |
+          shopt -s globstar nullglob
+          files=()
+          files+=(dist/**/app-release.apk)
+          files+=(dist/**/app-release.aab)
+          files+=(dist/**/Runner.ipa)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No release artifacts found."
+            exit 1
+          fi
+          {
+            echo "RELEASE_FILES<<EOF"
+            printf "%s\n" "${files[@]}"
+            echo "EOF"
+          } >> $GITHUB_ENV
+
+      - name: Set release tag
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "RELEASE_TAG=${{ inputs.tag }}" >> $GITHUB_ENV
+          elif [ "${{ github.ref_type }}" = "tag" ]; then
+            echo "RELEASE_TAG=${{ github.ref_name }}" >> $GITHUB_ENV
+          else
+            echo "RELEASE_TAG=${AUTO_TAG_PREFIX}${{ github.run_number }}" >> $GITHUB_ENV
+          fi
+
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ github.run_number }}
-          name: Release v${{ github.run_number }}
-          files: app/build/outputs/apk/release/app-release.apk
+          tag_name: ${{ env.RELEASE_TAG }}
+          name: Release ${{ env.RELEASE_TAG }}
+          target_commitish: ${{ github.sha }}
+          generate_release_notes: true
+          files: ${{ env.RELEASE_FILES }}

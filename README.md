@@ -1,6 +1,15 @@
-## 수진 기훈 결혼 Dday Application
-- v0.0.1 : [LoveSj-0.0.1.apk.zip](https://github.com/OsoriAndOmori/LoveSj/files/3480514/default.zip)
-- v1.0.1 : [LoveSj-1.0.1.apk.zip](https://github.com/OsoriAndOmori/LoveSj/files/3532454/LoveSj-1.0.1.apk.zip)
-- v2.0.0 : [LoveSj-1.0.1.apk.zip](https://github.com/OsoriAndOmori/project-LoveSj/files/14544565/love-sj-2.0.0.apk.zip)
+## 수진 기훈 결혼 Dday Application (Flutter)
 
-https://github.com/OsoriAndOmori/project-LoveSj/assets/22016317/62a97f3f-2627-4ba7-84d0-a35a25685273
+- Flutter 기반으로 Android + iOS 지원
+- 음력/양력 변환: `korean_lunar_utils`
+- 생일/기념일 D-day, 오전 9시 알림, 홈 위젯 포함
+
+### 실행
+
+```bash
+flutter pub get
+flutter run
+```
+
+### 참고
+- iOS 위젯은 Xcode에서 Widget Extension 타깃을 추가해 `ios/LoveSjWidget` 폴더를 연결해야 합니다.
