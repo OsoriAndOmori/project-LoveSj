@@ -50,8 +50,11 @@ jobs:
         run: flutter pub get
 
       - name: Decode keystore
-        if: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
         run: |
+          if [ -z "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" ]; then
+            echo "No Android keystore provided. Skipping decode."
+            exit 0
+          fi
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > ${{ github.workspace }}/release.keystore
 
       - name: Build release APK + AAB
@@ -82,10 +85,7 @@ jobs:
       ${{
         (github.event_name == 'workflow_dispatch' && inputs.build_ios == 'true') ||
         (github.event_name != 'workflow_dispatch' &&
-          env.IOS_BUILD_ENABLED == 'true' &&
-          secrets.IOS_TEAM_ID != '' &&
-          secrets.IOS_P12_BASE64 != '' &&
-          secrets.IOS_PROVISIONING_PROFILE_BASE64 != '')
+          env.IOS_BUILD_ENABLED == 'true')
       }}
     steps:
       - name: Checkout
