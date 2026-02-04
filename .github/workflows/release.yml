@@ -45,6 +45,9 @@ jobs:
           channel: stable
           cache: true
 
+      - name: Flutter clean
+        run: flutter clean
+
       - name: Flutter pub get
         run: flutter pub get
 
