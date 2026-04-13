@@ -1,11 +1,12 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.osori.lovesj">
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <application
         android:label="LoveSJ"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
-            android:name="com.osori.lovesj.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:taskAffinity=""
@@ -32,7 +33,7 @@
         </activity>
 
         <receiver
-            android:name="com.osori.lovesj.LoveSjWidgetProvider"
+            android:name=".LoveSjWidgetProvider"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
